@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static data.TestData.*;
+import static data.BrowserstackData.*;
 
 public class BrowserstackDriver implements WebDriverProvider {
 
@@ -21,9 +21,9 @@ public class BrowserstackDriver implements WebDriverProvider {
 
         caps.setCapability("browserstack.user", USER_NAME);
         caps.setCapability("browserstack.key", ACCESS_KEY);
-        caps.setCapability("app", "bs://sample.app");
-        caps.setCapability("device", "Google Pixel 7 Pro");
-        caps.setCapability("os_version", "13.0");
+        caps.setCapability("app", APP);
+        caps.setCapability("device", DEVICE);
+        caps.setCapability("os_version", OS_VERSION);
         caps.setCapability("project", "First Java Project");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "first_test");

@@ -2,7 +2,7 @@ package helpers;
 
 import static io.restassured.RestAssured.given;
 
-import static data.TestData.*;
+import static data.BrowserstackData.*;
 
 public class Browserstack {
 
