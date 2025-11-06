@@ -1,6 +1,8 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.BrowserstackConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -10,20 +12,19 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static data.BrowserstackData.*;
-
 public class BrowserstackDriver implements WebDriverProvider {
 
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities caps = new MutableCapabilities();
+        BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
 
-        caps.setCapability("browserstack.user", USER_NAME);
-        caps.setCapability("browserstack.key", ACCESS_KEY);
-        caps.setCapability("app", APP);
-        caps.setCapability("device", DEVICE);
-        caps.setCapability("os_version", OS_VERSION);
+        caps.setCapability("browserstack.user", browserstackConfig.userName());
+        caps.setCapability("browserstack.key", browserstackConfig.accessKey());
+        caps.setCapability("app", browserstackConfig.app());
+        caps.setCapability("device", browserstackConfig.device());
+        caps.setCapability("os_version", browserstackConfig.osVersion());
         caps.setCapability("project", "First Java Project");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "first_test");
