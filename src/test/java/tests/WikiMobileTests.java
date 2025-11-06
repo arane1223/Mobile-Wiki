@@ -20,29 +20,30 @@ public class WikiMobileTests extends TestBase {
     @Test
     @DisplayName("Успешное открытие статьи")
     void successfulArticleOpeningTest() {
-        // Явное ожидание появления кнопки поиска
-        $(AppiumBy.accessibilityId("Search Wikipedia"))
-                .shouldBe(visible)
-                .click();
 
-        // Ожидание ввода текста поиска
-        $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text"))
-                .shouldBe(visible)
-                .sendKeys("board game");
+        step("Открыть поиск", () ->
+                $(AppiumBy.accessibilityId("Search Wikipedia")).shouldBe(visible).click());
 
-        // Ожидание появления результата поиска и проверка названия
-        SelenideElement result = $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
-                .shouldHave(text("Board game"))
-                .shouldBe(visible);
+        step("Ввести запрос «board game»", () ->
+                $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text"))
+                        .shouldBe(visible)
+                        .sendKeys("board game"));
 
-        result.click();
+        step("Явно подождать появления хотя бы одного результата", () ->
+                $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
+                        .shouldHave(sizeGreaterThan(0)));
 
-        // Проверка, что открылась статья с нужным заголовком
-        $(AppiumBy.id("org.wikipedia.alpha:id/view_page_title_text"))
-                .shouldHave(text("Board game"))
-                .shouldBe(visible);
+        step("Клик по результату", () -> {
+            SelenideElement article = $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
+                    .findBy(text("Board game"));
+            article.shouldBe(visible).click();
+        });
+
+        step("Проверить, что заголовок статьи верен ", () ->
+                $(AppiumBy.id("org.wikipedia.alpha:id/view_page_title_text"))
+                        .shouldHave(text("Board game"))
+                        .shouldBe(visible));
     }
-
 
 
     @Test
