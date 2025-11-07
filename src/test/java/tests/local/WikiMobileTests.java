@@ -16,7 +16,6 @@ import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
 @Owner("sergeyglukhov")
-@Tag("mobile")
 @DisplayName("Тесты на поиск в мобильном приложении Wikipedia")
 public class WikiMobileTests extends TestBase {
 
