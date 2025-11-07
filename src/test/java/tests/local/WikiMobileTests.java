@@ -1,5 +1,6 @@
-package tests;
+package tests.local;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +11,8 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static io.appium.java_client.AppiumBy.*;
+import static io.appium.java_client.AppiumBy.accessibilityId;
+import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
 @Owner("sergeyglukhov")
@@ -21,7 +23,7 @@ public class WikiMobileTests extends TestBase {
     @Test
     @DisplayName("Успешное открытие статьи")
     void successfulArticleOpeningTest() {
-
+        back();
         step("Открыть поиск", () ->
                 $(accessibilityId("Search Wikipedia")).shouldBe(visible).click());
 
@@ -40,9 +42,14 @@ public class WikiMobileTests extends TestBase {
             article.shouldBe(visible).click();
         });
 
-        step("Проверить, что заголовок статьи верен ", () ->
-                $(id("org.wikipedia.alpha:id/view_page_title_text"))
-                        .shouldHave(text("Board game"))
+        step("Закрыть модальное окно 'Wikipedia games'", () -> {
+                ElementsCollection closeButtons = $$(id("org.wikipedia.alpha:id/closeButton"));
+                        closeButtons.first().shouldBe(visible).click();
+        });
+
+
+        step("Проверить, что заголовок статьи существует и правильный", () ->
+                $x("//android.view.View[@text='Board game']")
                         .shouldBe(visible));
     }
 
@@ -50,6 +57,7 @@ public class WikiMobileTests extends TestBase {
     @Test
     @DisplayName("Успешный поиск по слову «Appium»")
     void successfulSearchTest() {
+        back();
         step("Ввести «Appium» в поисковую строку", () -> {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
