@@ -47,7 +47,6 @@ public class WikiMobileTests extends TestBase {
                         closeButtons.first().shouldBe(visible).click();
         });
 
-
         step("Проверить, что заголовок статьи существует и правильный", () ->
                 $x("//android.view.View[@text='Board game']")
                         .shouldBe(visible));
