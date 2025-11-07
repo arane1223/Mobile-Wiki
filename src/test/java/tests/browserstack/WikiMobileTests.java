@@ -1,5 +1,6 @@
-package tests;
+package tests.browserstack;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -40,9 +41,13 @@ public class WikiMobileTests extends TestBase {
             article.shouldBe(visible).click();
         });
 
-        step("Проверить, что заголовок статьи верен ", () ->
-                $(id("org.wikipedia.alpha:id/view_page_title_text"))
-                        .shouldHave(text("Board game"))
+        step("Закрыть модальное окно 'Wikipedia games'", () -> {
+            ElementsCollection closeButtons = $$(id("org.wikipedia.alpha:id/closeButton"));
+            closeButtons.first().shouldBe(visible).click();
+        });
+
+        step("Проверить, что заголовок статьи существует и правильный", () ->
+                $x("//android.view.View[@text='Board game']")
                         .shouldBe(visible));
     }
 
