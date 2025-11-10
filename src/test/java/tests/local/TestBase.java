@@ -8,11 +8,15 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import screens.ArticleScreen;
+import screens.MainScreen;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
+    MainScreen mainScreen = new MainScreen();
+    ArticleScreen articleScreen = new ArticleScreen();
 
     @BeforeAll
     static void setUp() {
