@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "classpath:${env}.properties",
-        "classpath:local-real.properties"
+        "classpath:local-emul.properties"
 })
 public interface LocalConfig extends Config {
 
