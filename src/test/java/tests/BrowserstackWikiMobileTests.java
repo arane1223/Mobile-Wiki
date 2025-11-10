@@ -1,19 +1,18 @@
-package tests.local;
+package tests;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.*;
-
 @Owner("sergeyglukhov")
+@Tag("browserstack")
 @DisplayName("Тесты на поиск в мобильном приложении Wikipedia")
-public class WikiMobileTests extends TestBase {
+public class BrowserstackWikiMobileTests extends TestBase {
 
     @Test
     @DisplayName("Успешное открытие статьи")
     void successfulArticleOpeningTest() {
-        back();
         mainScreen
                 .enteringTextIntoSearchBar("board game")
                 .clickOnResult("Board game");
@@ -26,7 +25,6 @@ public class WikiMobileTests extends TestBase {
     @Test
     @DisplayName("Успешный поиск по слову «Appium»")
     void successfulSearchTest() {
-        back();
         mainScreen
                 .enteringTextIntoSearchBar("Appium")
                 .checkTheFoundContent();

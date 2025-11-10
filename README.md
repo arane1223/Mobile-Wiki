@@ -1,12 +1,23 @@
-# Mobile-HW18
-Домашнее задание по мобильной автоматизации.
+# Мобильная автоматизация, ДЗ к урокам 18 и 19
 
-## Для запуска тестов
+В проекте реализована возможность запускать тесты на разных стендах (BrowserStack, эмулятор локальный, реальное устройство локальное) с использованием параметра командной строки:
+
+## Команды для запуска
+
+- На BrowserStack:
 
 ```shell
-gradle clean mobile
+gradle clean test -DdeviceHost=browserstack
 ```
 
-## Jenkins
-- [Сборка в Jenkins](https://jenkins.autotests.cloud/job/Mobile-HW18/)  
-- [Allure отчет в Jenkins](https://jenkins.autotests.cloud/job/Mobile-HW18/allure/)
+- Локального запуск на эмуляторе:
+
+```shell
+gradle clean test -DdeviceHost=emulation
+```
+
+- Локального запуск на реальном устройстве:
+
+```shell
+gradle clean test -DdeviceHost=real
+```

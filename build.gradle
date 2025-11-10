@@ -58,10 +58,16 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
 
-task mobile_test(type: Test) {
+    def deviceHost = System.getProperty("deviceHost", "local")
+
     useJUnitPlatform {
-        includeTags("mobile")
+        if (deviceHost == "browserstack") {
+            includeTags 'browserstack'
+        } else if (deviceHost == "emulation" || deviceHost == "real") {
+            includeTags 'local'
+        } else {
+            includeTags 'local', 'browserstack'
+        }
     }
 }
