@@ -29,7 +29,6 @@ public class TestBase {
     void addAllureListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
-
     }
 
     @AfterEach
