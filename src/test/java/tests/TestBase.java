@@ -23,7 +23,6 @@ public class TestBase {
         Configuration.browser = CustomDriverSelector.choose();;
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
-
     }
 
     @BeforeEach
