@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 
 @Owner("sergeyglukhov")
 @Tag("browserstack")
-@DisplayName("Тесты на поиск в мобильном приложении Wikipedia")
+@DisplayName("Тесты для мобильного приложения Wikipedia")
 public class BrowserstackWikiMobileTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка стартовых экранов и поиска в приложении")
+    @DisplayName("Успешное прохождение стартовых экранов и проверка компонентов на главном экране")
     void searchNewWikiTest() {
         startScreen
                 .verifyWelcomePage("The Free Encyclopedia …in over 300 languages")
@@ -24,8 +24,9 @@ public class BrowserstackWikiMobileTests extends TestBase {
                 .clickOnDoneButton();
 
         mainScreen
-                .enteringTextIntoSearchBar("Selenium")
-                .checkTheFoundContent();
+                .checkThatSearchContainerIsVisible()
+                .checkThatHeaderImageIsVisible()
+                .checkHeader("Customize your Explore feed");
     }
 
     @Test
