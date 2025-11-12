@@ -11,6 +11,24 @@ import org.junit.jupiter.api.Test;
 public class BrowserstackWikiMobileTests extends TestBase {
 
     @Test
+    @DisplayName("Проверка стартовых экранов и поиска в приложении")
+    void searchNewWikiTest() {
+        startScreen
+                .verifyWelcomePage("The Free Encyclopedia …in over 300 languages")
+                .clickOnForwardButton()
+                .verifyWelcomePage("New ways to explore")
+                .clickOnForwardButton()
+                .verifyWelcomePage("Reading lists with sync")
+                .clickOnForwardButton()
+                .verifyWelcomePage("Data & Privacy")
+                .clickOnDoneButton();
+
+        mainScreen
+                .enteringTextIntoSearchBar("Selenium")
+                .checkTheFoundContent();
+    }
+
+    @Test
     @DisplayName("Успешное открытие статьи")
     void successfulArticleOpeningTest() {
         mainScreen
