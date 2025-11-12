@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import screens.ArticleScreen;
 import screens.MainScreen;
+import screens.StartScreen;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
@@ -17,6 +18,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
     MainScreen mainScreen = new MainScreen();
     ArticleScreen articleScreen = new ArticleScreen();
+    StartScreen startScreen = new StartScreen();
 
     @BeforeAll
     static void setUp() {
