@@ -72,5 +72,5 @@ gradle clean test -DdeviceHost=real
 
 ## :point_up_2: Видео пример прохождения тестов
 <p align="center">
-  <img title="Selenoid Video" src="images/video/wikitest.gif" tyle="width: 300px; height: auto;">
+  <img title="Selenoid Video" src="images/video/wikitest.gif" style="width: 300px; height: auto;">
 </p>
