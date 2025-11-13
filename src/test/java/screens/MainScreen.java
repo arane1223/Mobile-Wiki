@@ -15,7 +15,7 @@ public class MainScreen {
             headerImage = $(id("org.wikipedia.alpha:id/view_announcement_header_image")),
             announcementText = $(id("org.wikipedia.alpha:id/view_announcement_text"));
 
-    SearchComponent searchComponent = new SearchComponent();
+    protected SearchComponent searchComponent = new SearchComponent();
 
     @Step("Ввести текст в поисковую строку на главной странице")
     public MainScreen enteringTextIntoSearchBar(String text) {

@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.CustomDriverSelector;
 import helpers.Attach;
@@ -16,9 +17,9 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
-    MainScreen mainScreen = new MainScreen();
-    ArticleScreen articleScreen = new ArticleScreen();
-    StartScreen startScreen = new StartScreen();
+    protected MainScreen mainScreen = new MainScreen();
+    protected ArticleScreen articleScreen = new ArticleScreen();
+    protected StartScreen startScreen = new StartScreen();
 
     @BeforeAll
     static void setUp() {
@@ -35,6 +36,8 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
+        String sessionId = Selenide.sessionId().toString();
+        Attach.addVideo(sessionId);
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
