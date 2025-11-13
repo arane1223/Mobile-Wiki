@@ -37,7 +37,10 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
         String sessionId = Selenide.sessionId().toString();
-        Attach.addVideo(sessionId);
+        String deviceHost = System.getProperty("deviceHost", "emulation");
+        if ("browserstack".equals(deviceHost)) {
+            Attach.addVideo(sessionId);
+        }
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
