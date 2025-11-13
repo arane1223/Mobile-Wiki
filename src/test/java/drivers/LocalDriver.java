@@ -39,9 +39,8 @@ public class LocalDriver implements WebDriverProvider {
     }
 
     public static URL getAppiumServerUrl() {
-        String appiumUrl = System.getProperty("appium.url", "http://localhost:4723/wd/hub");
         try {
-            return new URL(appiumUrl);
+            return new URL("http://localhost:4723/wd/hub");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
