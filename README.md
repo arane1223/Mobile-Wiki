@@ -9,7 +9,7 @@
 - <a href="#point_up_2-сборка-в-Jenkins">Особенности сборки в Jenkins</a>
 - <a href="#point_up_2-запуск-из-терминала">Запуск из терминала</a>
 - <a href="#point_up_2-allure-отчет">Allure отчет</a>
-- <a href="#point_up_2-видео-пример-прохождения-теста">Видео пример прохождения теста</a>
+- <a href="#point_up_2-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
 ## :point_up_2: Стек
 
@@ -58,3 +58,19 @@ gradle clean test -DdeviceHost=emulation
 ```shell
 gradle clean test -DdeviceHost=real
 ```
+
+## :point_up_2: Allure отчет
+- ### Главный экран отчета
+<p align="center">
+<img title="Allure Overview Dashboard" src="images/screenshots/Allure.png">
+</p>
+
+- ### Страница с проведенным тестом
+<p align="center">
+<img title="Allure Test Page" src="images/screenshots/Allure-suites.png">
+</p>
+
+## :point_up_2: Видео пример прохождения тестов
+<p align="center">
+  <img title="Selenoid Video" src="images/video/wikitest.gif">
+</p>
