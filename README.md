@@ -1,17 +1,17 @@
 # Проект по автоматизации UI тестирования мобильного приложения Wikipedia
 <p align="center"></p><a href="https://github.com/wikimedia/apps-android-wikipedia/releases/tag/latest"><img width="30%" title="wikipedia" src="images/Wikipedia-logo.png"></a>
 
-## :point_up: Структура:
+## Структура:
 
-- <a href="#point_up_2-стек">Стек</a>
-- <a href="#point_up_2-проведенный автотест">Проведенный автотест</a>
-- <a href="#point_up_2-сборка-в-Jenkins">Сборка в Jenkins</a>
-- <a href="#point_up_2-сборка-в-Jenkins">Особенности сборки в Jenkins</a>
-- <a href="#point_up_2-запуск-из-терминала">Запуск из терминала</a>
-- <a href="#point_up_2-allure-отчет">Allure отчет</a>
-- <a href="#point_up_2-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
+- <a href="#-стек">Стек</a>
+- <a href="#-проведенный автотест">Проведенный автотест</a>
+- <a href="#-сборка-в-Jenkins">Сборка в Jenkins</a>
+- <a href="#-сборка-в-Jenkins">Особенности сборки в Jenkins</a>
+- <a href="#-запуск-из-терминала">Запуск из терминала</a>
+- <a href="#-allure-отчет">Allure отчет</a>
+- <a href="#-видео-пример-прохождения-тестов">Видео пример прохождения тестов</a>
 
-## :point_up_2: Стек
+## 🛠️ Стек
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
@@ -26,20 +26,22 @@
 <img width="9%" title="Appium" src="images/logo/appium.png">
 </p>
 
-## :point_up_2: Проведенный автотест
+## ✅ Проведенный автотест
 
 - Успешное прохождение стартовых экранов и проверка компонентов на главном экране
 - Успешное открытие статьи
 - Успешный поиск по слову «Appium»
 
-## :point_up_2: Сборка в Jenkins
+## 📋 Сборка в [Jenkins](https://jenkins.autotests.cloud/job/Mobile-HW18/)
 
-- [Сборка в Jenkins](https://jenkins.autotests.cloud/job/Mobile-HW18/)
+<p align="center">
+<img title="Jenkins" src="images/screenshots/Jenkins.png">
+</p>
 
 ### Особенности сборки в Jenkins:
 Сборка в Jenkins собрана на прогон тестов через BrowserStack
 
-## :point_up_2: Запуск из терминала
+## ▶️ Запуск из терминала
 
 - На BrowserStack:
 
@@ -59,7 +61,7 @@ gradle clean test -DdeviceHost=emulation
 gradle clean test -DdeviceHost=real
 ```
 
-## :point_up_2: Allure отчет
+## 📑 Allure отчет
 - ### Главный экран отчета
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screenshots/Allure.png">
@@ -70,7 +72,7 @@ gradle clean test -DdeviceHost=real
 <img title="Allure Test Page" src="images/screenshots/Allure-suites.png">
 </p>
 
-## :point_up_2: Видео пример прохождения тестов
+## 🎦 Видео пример прохождения тестов
 <p align="center">
   <img title="Selenoid Video" src="images/video/wikitest.gif" style="width: 300px; height: auto;">
 </p>
